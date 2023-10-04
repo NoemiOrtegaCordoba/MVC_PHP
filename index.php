@@ -9,8 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userId = isset($_POST['user_id']) ? $_POST['user_id'] : null;
     $action = 'displayUser';
 
-
-
     $controllerInstance = new $controller();
 
     if (method_exists($controllerInstance, $action)) {
