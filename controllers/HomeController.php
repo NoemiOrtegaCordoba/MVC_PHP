@@ -1,6 +1,4 @@
 <?php
-require_once('models/UserModel.php');
-
 class HomeController {
     private $userModel;
 
@@ -17,11 +15,15 @@ class HomeController {
     }
 
     public function displayUser($userId) {
-        $user = $this->userModel->getUserById($userId);
-        if ($user) {
-            echo "Usuario ID: {$user['id']}, Nombre: {$user['name']}";
+        if ($userId !== null) {
+            $user = $this->userModel->getUserById($userId);
+            if ($user) {
+                echo "Usuario ID: {$user['id']}, Nombre: {$user['name']}";
+            } else {
+                echo "Usuario no encontrado";
+            }
         } else {
-            echo "Usuario no encontrado";
+            echo "No se proporcionó un ID de usuario.";
         }
     }
 }
