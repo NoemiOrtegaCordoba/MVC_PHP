@@ -15,8 +15,8 @@ $controllerInstance = new $controller();
 
 if (method_exists($controllerInstance, $action)) {
     // Llamar a la acción con el parámetro adicional si es necesario
-    if (isset($segments[2])) {
-        $controllerInstance->$action($segments[2]);
+    if (isset($segments[3])) {
+        $controllerInstance->$action($segments[3]);
     } else {
         $controllerInstance->$action(null);
     }
