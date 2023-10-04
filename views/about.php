@@ -2,12 +2,11 @@
 <html>
 
 <head>
-    <title>Acerca de nosotros</title>
+    <title>Página de inicio</title>
 </head>
 
 <body>
-    <h1>Acerca de nosotros</h1>
-    <p>Esta es la página de información sobre nosotros.</p>
+    <h1>Bienvenido a la página de inicio</h1>
 </body>
 
 </html>
