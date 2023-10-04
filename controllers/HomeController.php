@@ -8,7 +8,7 @@ class HomeController {
         $this->userModel = new UserModel();
     }
 
-    public function index() {
+    public function home() {
         require_once('views/home.php');
     }
 
