@@ -1,4 +1,4 @@
 # MVC_PHP
-# http://localhost/Biblioteca/MVC_PHP/displayUser/1
+# http://localhost/carpeta/carpeta/displayUser/1
 
-# http://localhost/Biblioteca/MVC_PHP/about
+# http://localhost/carpeta/carpeta/about
