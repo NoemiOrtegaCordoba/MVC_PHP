@@ -2,20 +2,11 @@
 <html>
 
 <head>
-    <title>Lista de Usuarios</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Página de inicio</title>
 </head>
 
 <body>
-    <h1>Lista de Usuarios</h1>
-    <ul>
-        <?php
-        foreach ($users as $user) {
-            echo "<li>{$user['name']}</li>";
-        }
-        ?>
-    </ul>
-    <script src="js/script.js"></script>
+    <h1>Bienvenido a la página de inicio</h1>
 </body>
 
 </html>
