@@ -1,23 +1,29 @@
 <?php
+// Cargar dependencias y configuraciones necesarias
 
-require_once('Request.php');
-function frontController()
-{
-    // Obtener la solicitud HTTP
-    $request = new Request();
+// Analizar la URL para determinar la acción y los parámetros
+$uri = $_SERVER['REQUEST_URI'];
+$segments = explode('/', trim($uri, '/'));
 
-    // Asignar la solicitud a un controlador
-    $controller = $request->getController();
+// Determinar el controlador y la acción
+$controller = isset($segments[0]) ? $segments[0] : 'home'; // Controlador predeterminado si no se proporciona
+$action = isset($segments[1]) ? $segments[1] : 'index'; // Acción predeterminada si no se proporciona
 
-    // Verificar que el controlador sea válido
-    if (!class_exists($controller)) {
-        echo 'El controlador no es válido.';
-        exit;
+// Incluir el controlador correspondiente
+$controllerFile = "controllers/{$controller}Controller.php";
+if (file_exists($controllerFile)) {
+    require_once($controllerFile);
+
+    // Crear una instancia del controlador y llamar a la acción
+    $controllerClass = ucfirst($controller) . 'Controller';
+    $controllerInstance = new $controllerClass();
+    if (method_exists($controllerInstance, $action)) {
+        $controllerInstance->$action();
+    } else {
+        // Manejar la acción no encontrada
+        echo "Acción no válida";
     }
-
-    // Llamar al controlador
-    $controller->index();
+} else {
+    // Manejar el controlador no encontrado
+    echo "Controlador no encontrado";
 }
-
-// Llamada al controlador frontal
-frontController();
