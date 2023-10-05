@@ -1,6 +1,14 @@
+# Habilitar el motor de reescritura
 RewriteEngine On
+
+# Establecer la ruta base para la reescritura (puede ser diferente según tu configuración)
 RewriteBase /Biblioteca/MVC_PHP/
 
+# Condición para verificar si la solicitud no es un directorio existente
 RewriteCond %{REQUEST_FILENAME} !-d
+
+# Condición para verificar si la solicitud no es un archivo existente
 RewriteCond %{REQUEST_FILENAME} !-f
+
+# Regla de reescritura: redirige todo a index.php pasando la solicitud como parámetro
 RewriteRule ^(.*)$ index.php/$1 [L]
